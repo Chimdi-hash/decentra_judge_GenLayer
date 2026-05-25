@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecentraJudge - AI Escrow Consensus Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .crimson-gradient {
+            background: linear-gradient(135deg, #7A1F21 0%, #9E2A2B 50%, #B13D2F 100%);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans min-h-screen flex flex-col">
+
+    <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="relative group cursor-pointer">
+                <!-- Outer Glow -->
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-[#7A1F21] to-[#B13D2F] rounded-lg blur-md opacity-30 group-hover:opacity-80 transition duration-500"></div>
+                <!-- Main Icon Body -->
+                <div class="relative w-9 h-9 rounded-lg crimson-gradient flex items-center justify-center border border-white/20 shadow-2xl">
+                    <span class="font-black text-lg text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">Δ</span>
+                    <!-- Digital Scanline Overlay -->
+                    <div class="absolute inset-0 w-full h-full bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"></div>
+                </div>
+            </div>
+            <h1 class="text-2xl font-black tracking-[-0.05em] text-white italic">
+                DECENTRA<span class="text-transparent bg-clip-text bg-gradient-to-br from-[#B13D2F] to-[#7A1F21] drop-shadow-[0_0_15px_rgba(177,61,47,0.4)]">JUDGE</span>
+            </h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs bg-zinc-800 text-zinc-400 px-3 py-1.5 rounded-full border border-zinc-700 font-mono flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> GenVM Active Mode
+            </span>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <section class="lg:col-span-5 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+            <div>
+                <h2 class="text-lg font-semibold text-white mb-1">Create Intelligent Escrow</h2>
+                <p class="text-xs text-zinc-400 mb-6">Define your freelance milestone terms for automated subjective validation.</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-400 mb-1.5">Client Wallet Address</label>
+                        <input type="text" placeholder="0x742d35Cc6634C0532925a3b844Bc454e4438f44e" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-400 mb-1.5">Freelancer Handle / Proof Source</label>
+                        <input type="text" id="workerHandle" placeholder="@handle" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-sm text-zinc-200 focus:outline-none focus:border-[#9E2A2B] transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-400 mb-1.5">Subjective Task Requirements</label>
+                        <textarea id="taskDesc" rows="4" placeholder="Write a professional promotion thread about GenLayer testnet, maintaining a positive and deeply technical architectural tone." class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200 focus:outline-none focus:border-[#9E2A2B] transition-all resize-none"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="triggerConsensusSimulation()" class="w-full mt-6 crimson-gradient hover:opacity-95 text-white text-sm font-medium py-3 rounded-xl transition-all shadow-md shadow-[#7A1F21]/20 cursor-pointer text-center">
+                Trigger GenLayer Consensus
+            </button>
+        </section>
+
+        <section class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col shadow-xl">
+            <h2 class="text-lg font-semibold text-white mb-1">GenVM Consensus Pipeline Monitor</h2>
+            <p class="text-xs text-zinc-400 mb-6">Real-time status tracking of decentralized validator node execution layers.</p>
+
+            <div class="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl p-5 font-mono text-xs flex flex-col justify-between overflow-hidden relative">
+                <div id="terminalScreen" class="space-y-3 text-zinc-400">
+                    <div class="text-zinc-500">// System sitting in standby mode. Awaiting client deployment initialization...</div>
+                </div>
+                
+                <div id="payoutBadge" class="hidden border border-emerald-900/50 bg-emerald-950/20 text-emerald-400 p-4 rounded-xl flex items-center justify-between animate-fade-in mt-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center font-bold">✓</div>
+                        <div>
+                            <div class="font-semibold text-sm text-emerald-300">Equivalence Reached</div>
+                            <div class="text-[10px] text-emerald-500">Contract State Updated: is_completed = True</div>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold bg-emerald-500 text-zinc-950 px-2.5 py-1 rounded-md">PAID OUT</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function triggerConsensusSimulation() {
+            const screen = document.getElementById('terminalScreen');
+            const badge = document.getElementById('payoutBadge');
+            const handle = document.getElementById('workerHandle').value;
+            
+            badge.classList.add('hidden');
+            screen.innerHTML = `<div class="text-[#B13D2F] animate-pulse">⚙ [INIT] Interfacing with direct memory contract deployment instances...</div>`;
+            
+            setTimeout(() => {
+                screen.innerHTML += `<div class="text-zinc-300">🛰 [NETWORK] Querying non-deterministic network oracle gateways...</div>`;
+                screen.innerHTML += `<div class="text-zinc-400">🔍 [WEB GET] Scraping delivery reference source data metrics for ${handle}...</div>`;
+            }, 1200);
+
+            setTimeout(() => {
+                screen.innerHTML += `<div class="text-amber-400">🧠 [LLM CONSENSUS] Prompting Equivalence Nodes: 'Does content satisfy requested profile goals?'</div>`;
+                screen.innerHTML += `<div class="text-zinc-500">↳ Validator Node 1: YES | Validator Node 2: YES | Validator Node 3: YES</div>`;
+            }, 2600);
+
+            setTimeout(() => {
+                screen.innerHTML += `<div class="text-emerald-400 font-semibold">💎 [SUCCESS] Finalized state confirmation consensus matched successfully.</div>`;
+                badge.classList.remove('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
