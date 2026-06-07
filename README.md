@@ -1,44 +1,35 @@
 
+DecentraJudge
+A Decentralized AI Escrow Judge utilizing GenLayer's Equivalence Principle Consensus.
 
-﻿# decentra_judge_GenLayer
+DecentraJudge is an Intelligent Contract decentralized application (dApp) engineered for the GenLayer ecosystem. It automates freelance milestone escrows by eliminating the traditional "oracle problem" for subjective web data. By leveraging GenLayer’s unique capability to process unstructured text natively, the contract safely fetches web proof, executes decentralized LLM consensus to evaluate task completion, and updates the escrow state automatically.
 
-DecentraJudge — A Decentralized AI Escrow Judge utilizing GenLayer's Equivalence Principle Consensus.
+🚀 Core Features
+Subjective LLM Consensus: Utilizes GenLayer's gl.eq_principle.prompt_non_comparative to judge natural language deliverables against task criteria.
 
-live demo:https://decentra-judge-gen-layer.vercel.app/
+Deterministic State & Non-Deterministic Execution: Safely isolates web queries (gl.nondet.web.get) inside validator execution layers.
 
-Project Overview
-DecentraJudge is an "Intelligent Contract" designed to bridge the gap between deterministic blockchain logic and the unstructured reality of the internet. Traditional smart contracts are inherently isolated; they cannot natively perceive natural language or verify external web events without relying on centralized, prone-to-manipulation oracles. DecentraJudge solves this by leveraging GenLayer’s Equivalence Principle to act as a subjective, decentralized escrow agent that understands the context of a freelance agreement.
+Lightweight Direct VM Testing: Implements an in-memory testing framework bypassing heavy local dependencies—perfect for low-overhead environments.
 
-The application allows clients and workers to lock funds into a contract that doesn't just wait for a manual "release" button. Instead, it utilizes GenLayer’s ability to execute Python code and perform non-deterministic web requests via gl.nondet.web.get. By feeding live web data—such as a developer's GitHub commit or a writer's published article—into a consensus-driven LLM layer, DecentraJudge programmatically verifies if the work meets the natural language criteria of the task description. If the network of validators reaches consensus that the work is complete, the contract autonomously updates its state to release payment, providing a trustless, automated "judge" for the global freelance economy.
+Premium Web Interface: A highly responsive dashboard styled with a tech-forward Deep Crimson / Terracotta visual brand identity.
 
-Core Pillars & Architecture
-Deterministic Backend State: Built using GenLayer’s Python-based contract framework, the core logic handles secure state persistence for client identities, worker handles, and task completion flags, ensuring high-integrity blockchain accounting.
-Non-Deterministic Validation Layer: Unlike legacy chains, DecentraJudge executes non-deterministic operations directly within the consensus loop. It fetches live web text and uses LLM-powered "Optimistic Democracy" to evaluate subjective deliverables against natural language requirements.
-Modern Frontend Dashboard: A sleek, responsive interface built with Tailwind CSS that provides a real-time view of the "judicial process," showing the contract's transition from task submission to autonomous verification and payout.
-Project Directory Layout
-text
-
+📂 Project Directory Structure
+Plaintext
 decentra_judge/
 ├── contracts/
-│   └── decentrajudge_contract.py    # GenLayer Intelligent Contract logic
+│   └── decentrajudge_contract.py  # GenLayer Intelligent Contract backend logic
 ├── tests/
-│   └── test_decentrajudge.py       # Comprehensive pytest suite
+│   └── test_decentrajudge.py      # Direct Mode automated validation suite
 ├── frontend/
-│   └── index.html                  # Deep Crimson/Terracotta dashboard
-├── conftest.py                     # Pytest configuration & fixtures
-├── pytest.ini                      # Test runner settings
-└── .pytest_cache/                  # Local test execution cache
+│   └── index.html                 # Deep Crimson client interactive dashboard
+├── conftest.py                    # Test configuration framework settings
+└── pytest.ini                     # Pytest suite discovery configuration
+🛠️ Local Testing Workflow
+The backend contract logic is fully verified using automated unit tests that mock both network requests and validator LLM evaluations in-memory.
 
-Local Test Execution
-DecentraJudge is optimized for a lightweight developer experience, specifically designed to bypass the overhead of local Docker containers by utilizing GenLayer Direct Mode. Follow these steps to execute the test suite:
+To run the test suite locally without running a full node or heavy Docker containers, execute the following command in your terminal:
 
-Initialize Environment: Ensure you have the genlayer SDK installed in your Python environment.
-Run Tests: Execute the following command in the root directory:
-bash
-python -m pytest
-Direct Mode Execution: The test suite leverages the conftest.py configuration to run tests in a simulated GenLayer environment. This validates the non-deterministic web-fetching logic and LLM prompt structures safely and instantly without needing to deploy to a live testnet or manage heavy infrastructure.
-Visual Brand Identity Context
-The project features a tech-forward, high-authority user interface designed to instill confidence in both clients and freelancers. The palette centers on Deep Crimson and Terracotta accents, moving away from generic "crypto-blue" toward a premium, sophisticated aesthetic that feels like a modern legal institution. This "vibe coding" approach ensures the interface is not only functional but provides a seamless, high-end experience for users navigating decentralized arbitration.
-
-
-
+Bash
+python -m pytest tests/ -v
+🎨 Visual Dashboard Identity
+The front-end client interface provides an intuitive playground to monitor the GenVM pipeline. It is constructed using an ultra-clean, standalone configuration powered by Tailwind CSS, featuring smooth real-time visual step-logs that simulate client escrow initialization all the way to verified validator payout states.
