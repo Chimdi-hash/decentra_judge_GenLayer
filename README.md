@@ -28,3 +28,14 @@ decentra_judge/
 │   └── index.html                 # Deep Crimson client interactive dashboard
 ├── conftest.py                    # Test configuration framework settings
 └── pytest.ini                     # Pytest suite discovery configuration
+
+
+🛠️ Local Testing Workflow
+The backend contract logic is fully verified using automated unit tests that mock both network requests and validator LLM evaluations in-memory.
+
+To run the test suite locally without running a full node or heavy Docker containers, execute the following command in your terminal:
+
+Bash
+python -m pytest tests/ -v
+🎨 Visual Dashboard Identity
+The front-end client interface provides an intuitive playground to monitor the GenVM pipeline. It is constructed using an ultra-clean, standalone configuration powered by Tailwind CSS, featuring smooth real-time visual step-logs that simulate client escrow initialization all the way to verified validator payout states.
