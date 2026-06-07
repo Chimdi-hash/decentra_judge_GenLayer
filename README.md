@@ -27,4 +27,4 @@ decentra_judge/
 ├── frontend/
 │   └── index.html                 # Deep Crimson client interactive dashboard
 ├── conftest.py                    # Test configuration framework settings
-└── pytest.ini                     # Pytest suite
+└── pytest.ini                     # Pytest suite discovery configuration
