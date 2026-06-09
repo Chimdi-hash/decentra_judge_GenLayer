@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "vite frontend"
+  },
+  "dependencies": {
+    "genlayer-js": "^1.1.8",
+    "vite": "^5.0.0"
+  }
+}

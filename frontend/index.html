@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +17,22 @@
         }
 
         @keyframes mesh-move {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .animated-bg {
             background: radial-gradient(circle at 50% 50%, rgba(122, 31, 33, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 100% 0%, rgba(177, 61, 47, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 100% 0%, rgba(177, 61, 47, 0.1) 0%, transparent 40%);
             background-size: 200% 200%;
             animation: mesh-move 15s ease infinite;
         }
@@ -53,95 +62,135 @@
         }
 
         @keyframes scanline {
-            0% { top: 0; }
-            100% { top: 100%; }
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
         }
 
         /* Prevent input zoom on mobile */
-        input, textarea {
+        input,
+        textarea {
             font-size: 16px !important;
         }
 
         @media (min-width: 640px) {
-            input, textarea {
+
+            input,
+            textarea {
                 font-size: 0.875rem !important;
             }
         }
     </style>
 </head>
-<body class="bg-[#09090b] text-zinc-100 font-sans min-h-screen flex flex-col relative selection:bg-[#B13D2F]/30 selection:text-white">
+
+<body
+    class="bg-[#09090b] text-zinc-100 font-sans min-h-screen flex flex-col relative selection:bg-[#B13D2F]/30 selection:text-white">
     <!-- Background Effects -->
     <div class="fixed inset-0 animated-bg -z-10"></div>
-    <div class="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] -z-10 mix-blend-overlay"></div>
+    <div
+        class="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] -z-10 mix-blend-overlay">
+    </div>
     <div class="scanline"></div>
 
-    <header class="sticky top-0 z-40 w-full glass-panel border-b border-zinc-800/50 px-3 sm:px-8 py-2.5 sm:py-4 flex justify-between items-center transition-all">
+    <header
+        class="sticky top-0 z-40 w-full glass-panel border-b border-zinc-800/50 px-3 sm:px-8 py-2.5 sm:py-4 flex justify-between items-center transition-all">
         <div class="flex items-center gap-2 sm:gap-4">
             <div class="relative group cursor-pointer">
-                <div class="absolute -inset-1 bg-gradient-to-r from-[#7A1F21] to-[#B13D2F] rounded-lg blur-sm opacity-30 group-hover:opacity-80 transition duration-500"></div>
-                <div class="relative w-7 h-7 sm:w-9 sm:h-9 rounded-lg crimson-gradient flex items-center justify-center border border-white/20 shadow-xl">
-                    <span class="font-black text-base sm:text-lg text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">Δ</span>
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-[#7A1F21] to-[#B13D2F] rounded-lg blur-sm opacity-30 group-hover:opacity-80 transition duration-500">
+                </div>
+                <div
+                    class="relative w-7 h-7 sm:w-9 sm:h-9 rounded-lg crimson-gradient flex items-center justify-center border border-white/20 shadow-xl">
+                    <span
+                        class="font-black text-base sm:text-lg text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]">Δ</span>
                 </div>
             </div>
             <h1 class="text-lg sm:text-2xl font-black tracking-[-0.05em] text-white italic leading-none">
-                DECENTRA<span class="text-transparent bg-clip-text bg-gradient-to-br from-[#B13D2F] to-[#7A1F21] drop-shadow-[0_0_15px_rgba(177,61,47,0.4)]">JUDGE</span>
+                DECENTRA<span
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-[#B13D2F] to-[#7A1F21] drop-shadow-[0_0_15px_rgba(177,61,47,0.4)]">JUDGE</span>
             </h1>
         </div>
         <div class="flex items-center gap-3">
-            <span class="text-[9px] sm:text-xs bg-zinc-900/80 text-zinc-400 px-2 sm:px-3 py-1 rounded-full border border-zinc-700/50 font-mono flex items-center gap-1.5">
-                <span class="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse"></span> 
+            <span
+                class="text-[9px] sm:text-xs bg-zinc-900/80 text-zinc-400 px-2 sm:px-3 py-1 rounded-full border border-zinc-700/50 font-mono flex items-center gap-1.5">
+                <span class="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span class="hidden xs:inline">GenVM Active</span>
             </span>
         </div>
     </header>
 
-    <main class="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 overflow-hidden">
-        
+    <main
+        class="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 overflow-hidden">
+
         <!-- Creation Section -->
-        <section class="lg:col-span-5 glass-panel rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl group transition-all duration-500 hover:border-zinc-700/50">
+        <section
+            class="lg:col-span-5 glass-panel rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl group transition-all duration-500 hover:border-zinc-700/50">
             <div>
                 <div class="flex items-center gap-2 mb-1">
                     <div class="w-2 h-2 rounded-full bg-[#B13D2F]"></div>
                     <h2 class="text-lg font-semibold text-white tracking-tight">Create Intelligent Escrow</h2>
                 </div>
-                <p class="text-[11px] sm:text-xs text-zinc-400 mb-6 leading-relaxed">Define your freelance milestone terms for automated subjective validation and consensus triggering.</p>
-                
+                <p class="text-[11px] sm:text-xs text-zinc-400 mb-6 leading-relaxed">Define your freelance milestone
+                    terms for automated subjective validation and consensus triggering.</p>
+
                 <div class="space-y-4 sm:space-y-5">
                     <div class="group/input">
-                        <label class="block text-[10px] sm:text-xs font-medium text-zinc-500 mb-1.5 group-focus-within/input:text-[#B13D2F] transition-colors uppercase tracking-widest">Client Wallet Address</label>
-                        <input type="text" placeholder="0x742d3...8f44e" class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] focus:ring-1 focus:ring-[#9E2A2B]/20 transition-all font-mono">
+                        <label
+                            class="block text-[10px] sm:text-xs font-medium text-zinc-500 mb-1.5 group-focus-within/input:text-[#B13D2F] transition-colors uppercase tracking-widest">Client
+                            Wallet Address</label>
+                        <input type="text" placeholder="0x742d3...8f44e"
+                            class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] focus:ring-1 focus:ring-[#9E2A2B]/20 transition-all font-mono">
                     </div>
                     <div class="group/input">
-                        <label class="block text-[10px] sm:text-xs font-medium text-zinc-500 mb-1.5 group-focus-within/input:text-[#B13D2F] transition-colors uppercase tracking-widest">Freelancer / Proof Source</label>
-                        <input type="text" id="workerHandle" placeholder="@handle or URL" class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] focus:ring-1 focus:ring-[#9E2A2B]/20 transition-all">
+                        <label
+                            class="block text-[10px] sm:text-xs font-medium text-zinc-500 mb-1.5 group-focus-within/input:text-[#B13D2F] transition-colors uppercase tracking-widest">Freelancer
+                            / Proof Source</label>
+                        <input type="text" id="workerHandle" placeholder="@handle or URL"
+                            class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] focus:ring-1 focus:ring-[#9E2A2B]/20 transition-all">
                     </div>
                     <div class="group/input">
-                        <label class="block text-[10px] sm:text-xs font-medium text-zinc-500 mb-1.5 group-focus-within/input:text-[#B13D2F] transition-colors uppercase tracking-widest">Task Requirements</label>
-                        <textarea id="taskDesc" rows="4" placeholder="Describe the milestone deliverables for AI verification..." class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl p-4 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] focus:ring-1 focus:ring-[#9E2A2B]/20 transition-all resize-none min-h-[100px]"></textarea>
+                        <label
+                            class="block text-[10px] sm:text-xs font-medium text-zinc-500 mb-1.5 group-focus-within/input:text-[#B13D2F] transition-colors uppercase tracking-widest">Task
+                            Requirements</label>
+                        <textarea id="taskDesc" rows="4"
+                            placeholder="Describe the milestone deliverables for AI verification..."
+                            class="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl p-4 text-sm text-zinc-300 focus:outline-none focus:border-[#9E2A2B] focus:ring-1 focus:ring-[#9E2A2B]/20 transition-all resize-none min-h-[100px]"></textarea>
                     </div>
                 </div>
             </div>
 
-            <button onclick="triggerConsensusSimulation()" class="w-full mt-6 crimson-gradient hover:brightness-110 active:scale-[0.98] text-white text-sm font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-[#7A1F21]/30 cursor-pointer text-center uppercase tracking-widest">
+            <button onclick="triggerConsensusSimulation()"
+                class="w-full mt-6 crimson-gradient hover:brightness-110 active:scale-[0.98] text-white text-sm font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-[#7A1F21]/30 cursor-pointer text-center uppercase tracking-widest">
                 Trigger GenLayer Consensus
             </button>
         </section>
 
         <!-- Monitor Section -->
-        <section class="lg:col-span-7 glass-panel rounded-2xl p-5 sm:p-6 flex flex-col shadow-2xl transition-all duration-500 hover:border-zinc-700/50 overflow-hidden">
+        <section
+            class="lg:col-span-7 glass-panel rounded-2xl p-5 sm:p-6 flex flex-col shadow-2xl transition-all duration-500 hover:border-zinc-700/50 overflow-hidden">
             <div class="flex items-center justify-between mb-1">
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
                     <h2 class="text-lg font-semibold text-white tracking-tight">Consensus Pipeline</h2>
                 </div>
-                <div class="text-[10px] sm:text-xs font-mono text-zinc-500 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-700/50">LIVE_FEED</div>
+                <div
+                    class="text-[10px] sm:text-xs font-mono text-zinc-500 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-700/50">
+                    LIVE_FEED</div>
             </div>
-            <p class="text-[11px] sm:text-xs text-zinc-400 mb-6 font-medium">Real-time status tracking of decentralized validator node execution layers.</p>
+            <p class="text-[11px] sm:text-xs text-zinc-400 mb-6 font-medium">Real-time status tracking of decentralized
+                validator node execution layers.</p>
 
-            <div class="flex-1 bg-black/60 border border-zinc-800 rounded-xl p-4 sm:p-5 font-mono text-[10px] sm:text-xs flex flex-col justify-between overflow-hidden relative group/monitor">
+            <div
+                class="flex-1 bg-black/60 border border-zinc-800 rounded-xl p-4 sm:p-5 font-mono text-[10px] sm:text-xs flex flex-col justify-between overflow-hidden relative group/monitor">
                 <!-- Monitor Inner Glow -->
-                <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none transition-opacity duration-700 opacity-20 group-hover/monitor:opacity-40"></div>
-                
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none transition-opacity duration-700 opacity-20 group-hover/monitor:opacity-40">
+                </div>
+
                 <div id="terminalScreen" class="space-y-3 text-zinc-400 relative z-10">
                     <div class="text-zinc-600 font-bold">// SYSTEM: AWAITING DEPLOYMENT_INIT</div>
                     <div class="text-zinc-500 mt-2 flex items-center gap-2">
@@ -149,24 +198,31 @@
                         Ready for instructions.
                     </div>
                 </div>
-                
-                <div id="payoutBadge" class="hidden border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 p-4 sm:p-5 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 duration-700 mt-4 relative z-20 backdrop-blur-md">
+
+                <div id="payoutBadge"
+                    class="hidden border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 p-4 sm:p-5 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 duration-700 mt-4 relative z-20 backdrop-blur-md">
                     <div class="flex items-center gap-3 sm:gap-4">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center font-black text-lg border border-emerald-500/30">
+                        <div
+                            class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center font-black text-lg border border-emerald-500/30">
                             ✓
                         </div>
                         <div>
-                            <div class="font-bold text-sm sm:text-base text-emerald-300 uppercase tracking-tight">Equivalence Reached</div>
-                            <div class="text-[9px] sm:text-xs text-emerald-500/80 font-mono">HASH_MATCH: 0x8a92...f7e1 | STATUS: SETTLED</div>
+                            <div class="font-bold text-sm sm:text-base text-emerald-300 uppercase tracking-tight">
+                                Equivalence Reached</div>
+                            <div class="text-[9px] sm:text-xs text-emerald-500/80 font-mono">HASH_MATCH: 0x8a92...f7e1 |
+                                STATUS: SETTLED</div>
                         </div>
                     </div>
-                    <span class="text-[10px] sm:text-xs font-black bg-emerald-500 text-black px-3 py-1.5 rounded-md shadow-lg shadow-emerald-500/20">PAID OUT</span>
+                    <span
+                        class="text-[10px] sm:text-xs font-black bg-emerald-500 text-black px-3 py-1.5 rounded-md shadow-lg shadow-emerald-500/20">PAID
+                        OUT</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="p-4 sm:p-6 text-center text-zinc-600 text-[10px] sm:text-xs font-mono tracking-widest uppercase opacity-50">
+    <footer
+        class="p-4 sm:p-6 text-center text-zinc-600 text-[10px] sm:text-xs font-mono tracking-widest uppercase opacity-50">
         DecentraJudge v1.0.4-beta // Built on GenLayer Protocol
     </footer>
 
@@ -175,10 +231,10 @@
             const screen = document.getElementById('terminalScreen');
             const badge = document.getElementById('payoutBadge');
             const handle = document.getElementById('workerHandle').value || "@anonymous";
-            
+
             badge.classList.add('hidden');
             screen.innerHTML = `<div class="text-[#B13D2F] font-bold animate-pulse">⚙ [INIT] Interfacing with direct memory contract deployment instances...</div>`;
-            
+
             setTimeout(() => {
                 screen.innerHTML += `<div class="text-zinc-300 mt-2">🛰 [NETWORK] Querying non-deterministic network oracle gateways...</div>`;
                 screen.innerHTML += `<div class="text-zinc-400 opacity-80">🔍 [WEB GET] Scraping delivery reference source data metrics for <span class="text-white">${handle}</span>...</div>`;
@@ -196,11 +252,13 @@
             setTimeout(() => {
                 screen.innerHTML += `<div class="text-emerald-400 font-black mt-4 text-sm tracking-widest bg-emerald-400/5 p-2 rounded border border-emerald-400/20 animate-pulse">💎 SUCCESS: Consensus matched. Updating blockchain state.</div>`;
                 badge.classList.remove('hidden');
-                
+
                 // Scroll to bottom
                 screen.parentElement.scrollTop = screen.parentElement.scrollHeight;
             }, 4000);
         }
     </script>
+    <script type="module" src="app.js"></script>
 </body>
+
 </html>
